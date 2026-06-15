@@ -4,11 +4,24 @@ import { Button } from "@/components/ui/button";
 import { kpiData } from "@/data/mockData";
 import { useState, useEffect } from "react";
 import { useTheme } from "@/hook/useTheme";
+import { useNotifications } from "@/data/notificationData";
+import { NotificationBell, NotificationPanel } from "@/components/layout/NotificationPanel";
 
 export function TopBar() {
   const { theme, toggleTheme } = useTheme();
-  const [time, setTime] = useState(new Date());
+  const [time, setTime]               = useState(new Date());
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [notifOpen, setNotifOpen]     = useState(false);
+
+  const {
+    notifications,
+    unreadCount,
+    hasUnread,
+    markAsRead,
+    markAllAsRead,
+    dismiss,
+    clearAll,
+  } = useNotifications();
 
   useEffect(() => {
     const id = setInterval(() => setTime(new Date()), 1000);
@@ -62,19 +75,24 @@ export function TopBar() {
         <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? "animate-spin" : ""}`} />
       </Button>
 
-      {/* Alarm bell */}
+      {/* ── Notification bell + panel ─────────────────────────────────────── */}
       <div className="relative">
-        <Button variant="ghost" size="icon-sm" className="text-muted-foreground hover:text-foreground">
-          <Bell className="w-3.5 h-3.5" />
-        </Button>
-        {kpiData.activeAlarms > 0 && (
-          <Badge
-            variant="destructive"
-            className="absolute -top-1 -right-1 text-[9px] h-4 min-w-4 px-1 leading-none"
-          >
-            {kpiData.activeAlarms}
-          </Badge>
-        )}
+        <NotificationBell
+          open={notifOpen}
+          onToggle={() => setNotifOpen((v) => !v)}
+          unreadCount={unreadCount}
+          hasUnread={hasUnread}
+        />
+        <NotificationPanel
+          open={notifOpen}
+          onClose={() => setNotifOpen(false)}
+          notifications={notifications}
+          unreadCount={unreadCount}
+          onMarkAsRead={markAsRead}
+          onMarkAllRead={markAllAsRead}
+          onDismiss={dismiss}
+          onClearAll={clearAll}
+        />
       </div>
 
       {/* Theme toggle */}
