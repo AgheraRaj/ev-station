@@ -13,6 +13,9 @@ import { AlarmPanel } from "@/components/dashboard/AlarmPanel";
 import { StationsPage } from "@/pages/StationsPage";
 import { useLiveKPI } from "@/hook/useLiveData";
 import ChargersPage from "./pages/ChargersPage";
+import { SessionsPage } from "./pages/SessionsPage";
+import { AlarmsPage } from "./pages/AlarmsPage";
+import { ReportsPage } from "./pages/ReportsPage";
 
 function Dashboard() {
   const kpi = useLiveKPI();
@@ -81,26 +84,12 @@ function App() {
           <Route path="/"          element={<Dashboard />} />
           <Route path="/stations"  element={<StationsPage />} />
           <Route path="/chargers"  element={<ChargersPage />} />
-          <Route path="/sessions"  element={<ComingSoon title="Sessions" />} />
-          <Route path="/alarms"    element={<ComingSoon title="Alarms" />} />
-          <Route path="/analytics" element={<ComingSoon title="Analytics" />} />
-          <Route path="/reports"   element={<ComingSoon title="Reports" />} />
-          <Route path="/settings"  element={<ComingSoon title="Settings" />} />
+          <Route path="/sessions"  element={<SessionsPage />} />
+          <Route path="/alarms"    element={<AlarmsPage />} />
+          <Route path="/reports"   element={<ReportsPage />} />
         </Routes>
       </AppShell>
     </ThemeProvider>
-  );
-}
-
-function ComingSoon({ title }: { title: string }) {
-  return (
-    <div className="flex flex-col items-center justify-center h-full min-h-[60vh] gap-3">
-      <div className="w-12 h-12 rounded-2xl bg-[oklch(0.60_0.20_240)/10] border border-[oklch(0.60_0.20_240)/20] flex items-center justify-center">
-        <span className="text-xl">⚡</span>
-      </div>
-      <h2 className="text-lg font-bold text-foreground">{title}</h2>
-      <p className="text-sm text-muted-foreground">This page is coming soon.</p>
-    </div>
   );
 }
 

@@ -85,10 +85,10 @@ export function ChargerTable({ chargers, liveStatuses, selectedId, onSelect }: C
   });
 
   return (
-    <div className="rounded-xl border border-border bg-card overflow-hidden">
-      <div className="overflow-x-auto">
+    <div className="flex flex-col h-full bg-card rounded-xl border border-border overflow-hidden">
+      <div className="overflow-auto flex-1 min-h-0">
         <table className="w-full text-sm border-separate border-spacing-0">
-          <thead>
+          <thead className="bg-muted/40 sticky top-0 z-10 backdrop-blur-sm">
             <tr>
               <SortTh label="Charger ID"    sortKey="id"          current={sortKey} dir={sortDir} onSort={handleSort} className="first:rounded-tl-xl pl-4" />
               <SortTh label="Station"       sortKey="station"     current={sortKey} dir={sortDir} onSort={handleSort} className="hidden md:table-cell" />

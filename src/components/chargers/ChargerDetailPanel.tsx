@@ -108,7 +108,7 @@ export function ChargerDetailPanel({ chargerId, onClose }: ChargerDetailPanelPro
   return (
     <>
       {/* Backdrop */}
-      <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40" onClick={onClose} />
+      <div className="fixed inset-0 bg-black/40 h-screen backdrop-blur-sm z-40" onClick={onClose} />
 
       {/* Panel */}
       <div className="fixed right-0 top-0 h-full w-full max-w-[500px] bg-background border-l border-border z-50 flex flex-col shadow-2xl overflow-hidden">
