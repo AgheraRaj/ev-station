@@ -103,10 +103,17 @@ function ChargerCell({ charger, livePower, liveTemp, selected, onClick }: Charge
         </div>
       )}
 
-      {/* Connector type badge */}
-      <span className="text-[9px] text-muted-foreground/60 font-mono leading-none">
-        {charger.connectorType}
-      </span>
+      {/* Footer */}
+      <div className="flex items-center justify-between w-full mt-0.5">
+        <span className="text-[9px] text-muted-foreground/60 font-mono leading-none">
+          {charger.connectorType}
+        </span>
+        {isCharging && (
+          <span className="text-[9px] text-muted-foreground/80 leading-none">
+            {liveTemp.toFixed(0)}°C
+          </span>
+        )}
+      </div>
     </button>
   );
 }

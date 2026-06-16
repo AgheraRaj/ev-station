@@ -181,16 +181,6 @@ export function ChargerCard({
       <p className="text-[9px] text-muted-foreground/60 truncate leading-none border-t border-border/50 pt-1.5">
         {station?.name ?? charger.stationId}
       </p>
-
-      {/* Fault overlay */}
-      {charger.status === "fault" && liveTemp >= 65 && (
-        <div className="absolute top-1.5 right-1.5">
-          <span className="flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[oklch(0.65_0.22_25)] opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[oklch(0.65_0.22_25)]" />
-          </span>
-        </div>
-      )}
     </button>
   );
 }

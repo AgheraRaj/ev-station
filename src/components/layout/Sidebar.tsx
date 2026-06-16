@@ -2,8 +2,8 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import {
-  LayoutDashboard, MapPin, Zap, BarChart3, Bell,
-  Settings, ChevronLeft, ChevronRight, Activity, FileText, Shield,
+  LayoutDashboard, MapPin, Zap, Bell,
+  ChevronLeft, ChevronRight, Activity, FileText,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { allAlarms } from "@/data/alarmData";
@@ -20,10 +20,7 @@ const navItems = [
   { icon: Zap,             label: "Chargers",       to: "/chargers"  },
   { icon: Activity,        label: "Sessions",       to: "/sessions"  },
   { icon: Bell,            label: "Alarms",         to: "/alarms",   badge: activeAlarmCount, badgeVariant: "destructive" as const },
-  // { icon: BarChart3,       label: "Analytics",      to: "/analytics" },
   { icon: FileText,        label: "Reports",        to: "/reports"   },
-  // { icon: Shield,          label: "Access Control", to: "/access"    },
-  // { icon: Settings,        label: "Settings",       to: "/settings"  },
 ];
 
 export function Sidebar() {

@@ -171,7 +171,7 @@ export function StationDetailPanel({ stationId, onClose }: StationDetailPanelPro
                   <YAxis hide />
                   <Tooltip
                     contentStyle={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: 8, fontSize: 11 }}
-                    formatter={(v: number) => [`₹${v.toLocaleString("en-IN")}`, "Revenue"]}
+                    formatter={(v: any) => [`₹${v.toLocaleString("en-IN")}`, "Revenue"]}
                     cursor={{ fill: "oklch(0.60 0.20 240 / 0.06)" }}
                   />
                   <Bar dataKey="revenue" fill="oklch(0.65 0.18 300)" radius={[3, 3, 0, 0]} />
@@ -194,7 +194,7 @@ export function StationDetailPanel({ stationId, onClose }: StationDetailPanelPro
                   <YAxis hide />
                   <Tooltip
                     contentStyle={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: 8, fontSize: 11 }}
-                    formatter={(v: number) => [`${v} kWh`, "Energy"]}
+                    formatter={(v: any) => [`${v} kWh`, "Energy"]}
                     cursor={{ stroke: "oklch(0.60 0.20 240 / 0.3)", strokeWidth: 1 }}
                   />
                   <Area type="monotone" dataKey="kWh" stroke="oklch(0.65 0.20 240)" strokeWidth={1.5} fill={`url(#eg-${stationId})`} dot={false} />

@@ -1,5 +1,5 @@
 import { sessionKPIs } from "@/data/sessionData";
-import { Activity, CheckCircle2, Zap, AlertTriangle, Clock, Banknote } from "lucide-react";
+import { Activity, CheckCircle2, Zap, AlertTriangle, Banknote } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 function formatCost(rupees: number): string {

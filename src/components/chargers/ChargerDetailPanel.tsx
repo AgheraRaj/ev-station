@@ -196,7 +196,10 @@ export function ChargerDetailPanel({ chargerId, onClose }: ChargerDetailPanelPro
                     { icon: Zap,     label: "Energy",     value: `${session.energyKWh.toFixed(1)} kWh` },
                   ].map(({ icon: Icon, label, value }) => (
                     <div key={label}>
-                      <p className="text-[10px] text-muted-foreground">{label}</p>
+                      <p className="text-[10px] text-muted-foreground flex items-center gap-1">
+                        <Icon className="w-3 h-3" />
+                        {label}
+                      </p>
                       <p className="text-xs font-semibold text-foreground truncate">{value}</p>
                     </div>
                   ))}

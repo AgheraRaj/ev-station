@@ -82,7 +82,7 @@ export function RevenueByStationChart() {
               axisLine={false}
             />
             <Tooltip content={<CustomTooltip />} cursor={{ fill: "oklch(0.60 0.20 240 / 0.05)" }} />
-            <Bar dataKey="revenue" radius={[0, 4, 4, 0]} label={{ position: "right", fontSize: 9, fill: "oklch(0.60 0.010 240)", formatter: (v: number) => v >= 100000 ? `₹${(v/100000).toFixed(1)}L` : `₹${(v/1000).toFixed(0)}K` }}>
+            <Bar dataKey="revenue" radius={[0, 4, 4, 0]} label={{ position: "right", fontSize: 9, fill: "oklch(0.60 0.010 240)", formatter: (v: any) => v >= 100000 ? `₹${(v/100000).toFixed(1)}L` : `₹${(v/1000).toFixed(0)}K` }}>
               {stationTotals.map((_, i) => (
                 <Cell key={i} fill={barColor(i, stationTotals.length)} />
               ))}

@@ -1,5 +1,4 @@
-import { Bell, Search, Sun, Moon, RefreshCw, Wifi } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Search, Sun, Moon, RefreshCw, Wifi } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { kpiData } from "@/data/mockData";
 import { useState, useEffect } from "react";

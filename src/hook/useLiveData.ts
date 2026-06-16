@@ -93,7 +93,7 @@ export function useLiveChargerStatus(intervalMs = 5000) {
 }
 
 export function useAlarmCount() {
-  const [count, setCount] = useState(alarms.filter((a) => !a.acknowledged).length);
+  const [count] = useState(alarms.filter((a) => !a.acknowledged).length);
   // Could simulate new alarms arriving; for now it's stable
   return count;
 }

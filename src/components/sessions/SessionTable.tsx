@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
-import type { HistoricalSession, SessionStatus, PaymentMethod } from "@/data/sessionData";
+import type { HistoricalSession, SessionStatus } from "@/data/sessionData";
 import type { ConnectorType } from "@/data/mockData";
 import { Car, Clock, Zap, ChevronDown, ChevronUp, ChevronsUpDown } from "lucide-react";
 import { useLiveSessionPower } from "@/hook/useLiveData";

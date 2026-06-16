@@ -1,7 +1,3 @@
-// ─── Session History Data ─────────────────────────────────────────────────────
-// Extends mockData's activeSessions with a large set of completed sessions
-// covering the past 7 days across all 12 Indian stations.
-
 import { activeSessions, type ChargingSession } from "@/data/mockData";
 
 export type SessionStatus = "active" | "completed" | "interrupted";
@@ -15,7 +11,6 @@ export interface HistoricalSession extends ChargingSession {
 }
 
 const base = new Date();
-const minsAgo  = (m: number) => new Date(base.getTime() - m * 60_000);
 const hoursAgo = (h: number) => new Date(base.getTime() - h * 3_600_000);
 const daysAgo  = (d: number, h = 0) => new Date(base.getTime() - d * 86_400_000 - h * 3_600_000);
 
