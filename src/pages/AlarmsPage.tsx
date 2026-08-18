@@ -164,7 +164,7 @@ export function AlarmsPage() {
           ))}
         </div>
 
-        {/* Status filter */}
+        {/* Status filter test*/}
         <div className="flex items-center gap-1 bg-card border border-border rounded-lg p-0.5">
           {statusOptions.map(({ value, label }) => (
             <button
