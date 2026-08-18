@@ -250,7 +250,7 @@ export function ChargerDetailPanel({ chargerId, onClose }: ChargerDetailPanelPro
                   <YAxis hide domain={[0, charger.powerKW * 1.1]} />
                   <Tooltip
                     contentStyle={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: 8, fontSize: 11 }}
-                    formatter={(v: number) => [`${v} kW`, "Power"]}
+                    formatter={(value) => [`${Number(value ?? 0)} kW`, "Power"]}
                   />
                   <Area type="monotone" dataKey="kW" stroke="oklch(0.65 0.20 240)" strokeWidth={1.5} fill={`url(#pwg-${chargerId})`} dot={false} />
                 </AreaChart>
