@@ -1,4 +1,4 @@
-import { Search, Sun, Moon, RefreshCw, Wifi } from "lucide-react";
+import { Search, Sun, Moon, RefreshCw, Wifi, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { kpiData } from "@/data/mockData";
 import { useState, useEffect } from "react";
@@ -6,7 +6,11 @@ import { useTheme } from "@/hook/useTheme";
 import { useNotifications } from "@/data/notificationData";
 import { NotificationBell, NotificationPanel } from "@/components/layout/NotificationPanel";
 
-export function TopBar() {
+interface TopBarProps {
+  onMenuClick: () => void;
+}
+
+export function TopBar({ onMenuClick }: TopBarProps) {
   const { theme, toggleTheme } = useTheme();
   const [time, setTime]               = useState(new Date());
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -33,9 +37,20 @@ export function TopBar() {
   };
 
   return (
-    <header className="h-14 shrink-0 border-b border-border bg-background flex items-center px-4 gap-3">
+    <header className="h-14 shrink-0 border-b border-border bg-background flex items-center px-3 md:px-4 gap-2 md:gap-3">
+      {/* Mobile menu toggle */}
+      <Button
+        variant="ghost"
+        size="icon-sm"
+        onClick={onMenuClick}
+        className="text-muted-foreground hover:text-foreground lg:hidden shrink-0"
+        aria-label="Open menu"
+      >
+        <Menu className="w-4 h-4" />
+      </Button>
+
       {/* Search */}
-      <div className="flex-1 max-w-xs">
+      <div className="flex-1 min-w-0 max-w-xs">
         <div className="relative">
           <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground" />
           <input

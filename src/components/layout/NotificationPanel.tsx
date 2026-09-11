@@ -183,9 +183,11 @@ export function NotificationPanel({
     <div
       ref={panelRef}
       className={cn(
-        // Position: right-aligned below the bell, above other content
-        "absolute right-0 top-[calc(100%+8px)] z-50",
-        "w-[380px] max-h-[520px] flex flex-col",
+        // Mobile: a fixed panel inset from the screen edges so it can never overflow
+        // the viewport. From sm+ there's enough room to anchor it under the bell instead.
+        "fixed left-3 right-3 top-16 max-h-[70vh]",
+        "sm:absolute sm:left-auto sm:right-0 sm:top-[calc(100%+8px)] sm:w-[380px] sm:max-h-[520px]",
+        "z-50 flex flex-col",
         "rounded-xl border border-border bg-card shadow-2xl shadow-black/20",
         // Entry animation (Tailwind v4 / tw-animate-css compatible)
         "animate-in fade-in slide-in-from-top-2 duration-150",
